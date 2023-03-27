@@ -25,22 +25,21 @@ class lowpass_filter {
     float old_raw; // old raw val
     float old_filtered; // old filtered val
     float ts = 0; // sampling time 1/sampling frequency
-    float t_s = 0;
+    
 
     // filter function
     // raw signal as input
     float filter(float raw) {
-      t_s = micros() - t_s;
-      ts = t_s / 1e6;
+      ts = (micros() - ts) * 1e-6;
       // coefficients a and b from bilinear transform of transfer function
       // of first order lowpass filter
-      float a_0 = -((ts / 2) * 2 * PI * f_cutoff - 1) / ((ts / 2) * 2 * PI * f_cutoff + 1);
+      float a_0 = -(((ts / 2) * 2 * PI * f_cutoff - 1) / ((ts / 2) * 2 * PI * f_cutoff + 1));
       float b_0 = ((ts / 2) * 2 * PI * f_cutoff) / (1 + (ts / 2) * 2 * PI * f_cutoff);
 
       float filtered = a_0 * old_filtered + b_0 * raw + b_0 * old_raw;
       old_raw = raw; // save current raw for next calc
       old_filtered = filtered; // save current filtered for next calc
-      t_s = micros();
+      ts = micros();
       return filtered; // return the filtered val
     }
 };
