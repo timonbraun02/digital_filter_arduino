@@ -3,14 +3,20 @@
 A library for creating digital lowpass filter.
 
 # Quick start guide
-- Create and name a filter object. Define the cutoff frequency.
-```
-lowpass_filter my_filter_1(cutoff frequency); // cutoff frequency in Hz
 
+- Include the lib
+```cpp
+#include "filter_lib.h"
+```
+
+- Create and name a filter object. Define the cutoff frequency.
+```cpp
+lowpass_filter my_filter_1(cutoff frequency); // cutoff frequency in Hz
 lowpass_filter my_filter_2; // default 1 Hz is used as cutoff frequency
 ```
+
 - In your loop, pass an incoming signal (sensor reading) to the filter function of the filter object
-```
+```cpp
 filtered_signal = my_filter_1.filter(raw_signal); // returns the filtered signal
 ```
 - Done
@@ -31,7 +37,7 @@ filtered_signal = my_filter_1.filter(raw_signal); // returns the filtered signal
 ![alt text](https://github.com/timonbraun02/digital_filter_arduino/blob/main/second_order.png)
 
 - The code for a second order lowpass filter would look like this:
-```
+```cpp
 lowpass_filter my_filter_1(10);
 lowpass_filter my_filter_2(10);
 
