@@ -2,6 +2,10 @@
 
 A library for creating digital lowpass filter.
 
+![alt text](https://github.com/timonbraun02/digital_filter_arduino/blob/main/noisefilter.png)
+- The image shows a 0.1 Hz sine wave signal with an added 50 Hz and 150 Hz sine wave to simulate noise.
+- The raw signal is shown in blue and the filtered signal is shown in red
+
 # Quick start guide
 
 - Include the lib
