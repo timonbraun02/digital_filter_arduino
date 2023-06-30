@@ -50,3 +50,20 @@ void loop(){
   filtered_signal = my_filter_1.filter( my_filter_2.filter( raw_signal ) );
 }
 ```
+
+# Testing
+
+- This digital filter should only be use for low frequency applications as the following tests will show
+- In the following tests, I set the cutoff frequency of my filter to the same frequency of a sine wave signal
+- The filter was tested for 0.1 Hz, 1 Hz, 2 Hz, 5 Hz and 10 Hz
+  - 0.1 Hz -> Gain = -3.01 dB
+  - 1 Hz -> Gain = -3.02 dB
+  - 2 Hz -> Gain = -3.09 dB
+  - 5 Hz -> Gain = -3.50 dB
+  - 10 Hz -> Gain = -6.36 dB
+- From the tests you can see that your input signal should not exceed 5 Hz
+- Conclusion:
+  - The filter works great for input signals below 5 Hz, which should not be an issue if your application is to smooth out a sensor reading or filter high frequency noise
+  - The filter should not be used for signals above 5 Hz since the results can be in accurate
+  - I did not include the test for the 100 Hz frequency, since the result was very inconsistent and even showed a positive gain at the cutoff frequency
+  - Recommended applications: noise filter for analog sensors, and other low frequency signals
