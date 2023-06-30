@@ -62,11 +62,12 @@ void loop(){
 
 ![alt text](https://github.com/timonbraun02/digital_filter_arduino/blob/main/1Hz.png)
 - The image shows the raw 1 Hz sine wave (blue) and the filtered result (red)
-- As you can see, the magnitude of the input has been decreased, as should be expected
+- As you can see, the magnitude of the input has been decreased, as should be expected when the input signal s frequency matches the cutoff frequency of the filter 
 - The phase shift of 45° can also be seen in the image
 
 ## Results
 - The filter was tested for 0.1 Hz, 1 Hz, 2 Hz, 5 Hz and 10 Hz
+- The expected gain of the output signal is -3 dB, since the input signals frequency is set to match the filters cutoff frequency
   - 0.1 Hz -> Gain = -3.01 dB
   - 1 Hz -> Gain = -3.02 dB
   - 2 Hz -> Gain = -3.09 dB
