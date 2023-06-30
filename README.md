@@ -55,6 +55,13 @@ void loop(){
 
 - This digital filter should only be use for low frequency applications as the following tests will show
 - In the following tests, I set the cutoff frequency of my filter to the same frequency of a sine wave signal
+
+![alt text](https://github.com/timonbraun02/digital_filter_arduino/blob/main/1Hz.png)
+- The image shows the raw 1 Hz sine wave (blue) and the filtered result (red)
+- As you can see, the magnitude of the input has been decreased, as should be expected
+- The phase shift of 45° can also be seen in the image
+
+## Results
 - The filter was tested for 0.1 Hz, 1 Hz, 2 Hz, 5 Hz and 10 Hz
   - 0.1 Hz -> Gain = -3.01 dB
   - 1 Hz -> Gain = -3.02 dB
@@ -62,7 +69,8 @@ void loop(){
   - 5 Hz -> Gain = -3.50 dB
   - 10 Hz -> Gain = -6.36 dB
 - From the tests you can see that your input signal should not exceed 5 Hz
-- Conclusion:
+
+# Conclusion:
   - The filter works great for input signals below 5 Hz, which should not be an issue if your application is to smooth out a sensor reading or filter high frequency noise
   - The filter should not be used for signals above 5 Hz since the results can be in accurate
   - I did not include the test for the 100 Hz frequency, since the result was very inconsistent and even showed a positive gain at the cutoff frequency
