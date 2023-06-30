@@ -62,21 +62,20 @@ void loop(){
 
 ![alt text](https://github.com/timonbraun02/digital_filter_arduino/blob/main/1Hz.png)
 - The image shows the raw 1 Hz sine wave (blue) and the filtered result (red)
-- As you can see, the magnitude of the input has been decreased, as should be expected when the input signal s frequency matches the cutoff frequency of the filter 
+- As you can see, the magnitude of the input has been decreased, as should be expected when the input signals frequency matches the cutoff frequency of the filter 
 - The phase shift of 45° can also be seen in the image
 
 ## Results
-- The filter was tested for 0.1 Hz, 1 Hz, 2 Hz, 5 Hz and 10 Hz
+- The filter was tested for 0.1 Hz, 1 Hz, 10 Hz and 100 Hz
 - The expected gain of the output signal is -3 dB, since the input signals frequency is set to match the filters cutoff frequency
-  - 0.1 Hz -> Gain = -3.01 dB
-  - 1 Hz -> Gain = -3.02 dB
-  - 2 Hz -> Gain = -3.09 dB
-  - 5 Hz -> Gain = -3.50 dB
-  - 10 Hz -> Gain = -6.36 dB
-- From the tests you can see that your input signal should not exceed 5 Hz
+  - 0.1 Hz -> Gain = -3.12 dB
+  - 1 Hz -> Gain = -3.13 dB
+  - 10 Hz -> Gain = -3.12 dB
+  - 100 Hz -> Gain = -3.13 dB
+- The limiting factor for input signals is your sampling rate
 
 # Conclusion:
-  - The filter works great for input signals below 5 Hz, which should not be an issue if your application is to smooth out a sensor reading or filter high frequency noise
-  - The filter should not be used for signals above 5 Hz since the results can be in accurate
-  - I did not include the test for the 100 Hz frequency, since the result was very inconsistent and even showed a positive gain at the cutoff frequency
+  - The filter works great for smoothing out a sensor reading or filter high frequency noise
+  - The filter is limited by your sampling rate
+  - I did not include the test for the 1000 Hz frequency, since I was limited by my sampling rate
   - Recommended applications: noise filter for analog sensors, and other low frequency signals
